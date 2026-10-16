@@ -1,0 +1,91 @@
+% ====================================================================
+% COMPILACIÓN PRINCIPAL - TESIS DE GEOLOGÍA UCM 2026
+% Estudiante: Francisco Sepúlveda Vergara
+% Compañeros: Camila Orellana Garrido, Emilio Paineman, Ricardo Inostroza
+% Asignatura: OPP125 - Herramientas Computacionales
+% ====================================================================
+
+\documentclass[12pt,letterpaper,oneside]{report}
+
+% --- Paquetes obligatorios (Requisito pauta) ---
+\usepackage[spanish,es-tabla]{babel} % Idioma español y cambia 'Cuadro' por 'Tabla'
+\usepackage[utf8]{inputenc}          % Para poder escribir tildes y eñes directo
+\usepackage{geometry}                % Para configurar los márgenes oficiales de tesis
+\geometry{top=3cm, bottom=3cm, left=3.5cm, right=2.5cm}
+
+\usepackage{graphicx} % Fundamental para cargar mapas y el logo de la UCM
+\usepackage{amsmath}  % Para las fórmulas químicas de hidrólisis
+\usepackage{fancyhdr} % Para personalizar la barra superior de las páginas
+\usepackage{natbib}   % Para gestionar la bibliografía con BibTeX
+
+% --- Configuración del encabezado ---
+\pagestyle{fancy}
+\setlength{\headheight}{16pt} % Ajuste para que no tire advertencia de tamaño
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\slshape \leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter} % Quita la dependencia del capítulo (se convierte en Figura 1, 2, 3...)
+
+% --- Comentarios y ediciones del revisor ---
+\newcommand{\naty}[1]{\textcolor{blue}{#1}}
+\newcommand{\coment}[1]{\textcolor{red}{\textbf{[Comentario: #1]}}}
+
+% ====================================================================
+% APERTURA DEL DOCUMENTO
+% ====================================================================
+\begin{document}
+
+% --- 1. PORTADA OFICIAL ---
+\begin{titlepage}
+    \centering
+    
+    % Aquí va el logo institucional (el archivo debe estar subido en la carpeta imagenes)
+    \includegraphics[width=1.1\textwidth]{imagenes/logo_ucm.png}\\[1.2cm] 
+    
+    {\bfseries\Large UNIVERSIDAD CATÓLICA DEL MAULE}\\[1cm]
+    {\small FACULTAD DE CIENCIAS BÁSICAS}\\[0.2cm]
+    {\small ESCUELA DE GEOLOGÍA}\\[2.5cm]
+    
+    {\Large\bfseries De la roca a la costa: fuentes geológicas potenciales de hierro y rutas de transporte en la Región del Maule, Chile}\\[2.5cm] 
+
+    {\large Optativo de Investigacion Aplicada GEO225}\\[2.5cm]
+    
+    \begin{flushright}
+        \textbf{Autor/a:} Francisco Sepúlveda Vergara\\[0.2cm]
+        \textbf{Profesor Guía:} Dr. Natalia Opazo\\[0.2cm]
+    \end{flushright}
+    
+    \vfill
+    {\large Talca, 2026}
+\end{titlepage}
+
+% --- 2. PÁGINAS PRELIMINARES E ÍNDICES ---
+\clearpage
+\pagenumbering{roman} % Números romanos (i, ii, iii) para las primeras hojas
+
+\include{capitulos/00_preliminares}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% --- 3. CUERPO DE LA TESIS (Modulares) ---
+\clearpage
+\pagenumbering{arabic} % Cambiamos a números normales (1, 2, 3...) para el desarrollo
+
+\include{capitulos/01_introduccion}
+\include{capitulos/02_marco_teorico}
+\include{capitulos/03_metodologia}
+\include{capitulos/04_resultados}
+
+% --- 4. REFERENCIAS Y BIBLIOGRAFÍA ---
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliografía} % Para forzar que la biblio aparezca en el índice
+\bibliographystyle{plainnat} 
+\bibliography{referencias} 
+
+\end{document}
